@@ -1,5 +1,5 @@
 function main(x,y){
-	//获取canvas对象
+  //获取canvas对象
   var c=document.getElementById("myCanvas");
   //获取canvas的上下文
   var ctx=c.getContext("2d");
@@ -9,6 +9,9 @@ function main(x,y){
   //var XY=getXY(img)	
   //获取裁剪后图片的像素信息
   var imgData = getImageData(img,x,y)
+  //获取处理后的图片展示
+  var newData = clearOther();
+
   //获取RGB 
   var RGB = getRGBAverage(imgData);
   var RGBinfo=document.getElementById("RGB")
@@ -58,6 +61,45 @@ function main(x,y){
   
   
   /**********************************下面是函数部分***********************************/
+  //获得图像中心区域的RGB集合 ************************************************************
+	function getImageData(img,x,y){
+	  //第一个参数是图像元素  ，第2,3个是从图像的那里开始截图，第4,5个是截图图像元素的大小,
+	  //第6,7个是放在canvas上的位置,8,9个是将截取下来的图像，以多少宽高显显示在画布上
+	  //截取样张上的部分图片绘制到画布上去
+	  ctx.drawImage(img,x,y,100,100,0,0,100,100);
+	  
+	  
+	  //第1,2个参数是从画布那里开始截取,第3,4参数是截取的大小
+	  //选中画布上的矩形区域，求出改区域上的rgba
+	 
+	  var data =  ctx.getImageData(0,0,100,100)
+	  var imgData = data.data;
+ 
+	  var arr = []
+	  for(var i =0; i < imgData.length;i+=4){
+	  		var obj = {};
+	  		obj.R=imgData[i];
+	  		obj.G=imgData[i+1];
+	  		obj.B=imgData[i+2];
+	  		obj.A=imgData[i+3];
+	  		arr.push(obj);
+	  }
+	  	return arr
+	  }
+	//消除其他非叶部元素的影响***************************************************************
+	function clearOther(){
+	  var data =  ctx.getImageData(0,0,100,100);
+	  var color = data.data;
+	  for(var i =0;i<data.data.length;i+=4){
+	  	if(data.data[i+1]<140&&data.data[i+2]<130&&data.data[i+2]>10){
+	  		color[i]=255;
+	  		color[i+1]=255;				
+	  		color[i+2]=255;
+	  	}
+	  }
+	ctx.putImageData(data,150,0);
+		
+	}
   //求出所选区域的RGB平均值**************************************************************
   function getRGBAverage(imgData){
   	var R=0;
@@ -71,6 +113,7 @@ function main(x,y){
   		G+=imgData[i].G;
   		B+=imgData[i].B;
 	}
+  	
   	R=format(R/10000);
   	G=format(G/10000);
   	B=format(B/10000);
@@ -126,6 +169,7 @@ function main(x,y){
   		I+=(R+G+B)/3;
   		H+=Math.acos((2*R-G-B)/( 2*Math.sqrt((R-G)*(R-G) + (R-B)*(G-B))))
   		S+=1-(3*Math.min(R,G,B)) / (R+G+B);
+
 	}
 
   	I=format(I/10000);
@@ -137,46 +181,13 @@ function main(x,y){
   	obj.I=I;
   	return obj
   }
-  //用来保留小数点用的
+  
+  //用来保留小数点用的函数*******************************************************
     function format(val){
   		return Number(val).toFixed(2)*1;
   	}
- //获取截取的坐标位置 ***************************************************************
-  function getXY(img){
-  //获取待检测图像的宽高，
-  var imgW = img.offsetWidth;
-  var imgH = img.offsetHeight;
-  //截图图像点的坐标
-  var x = imgW/2-50;
-  var y = imgH/2-50;
-  var arr=[];
-  arr[0]=x;
-  arr[1]=y;
-  	return arr
-  }
-  
 
-//获得图像中心区域的RGB集合 ************************************************************
-function getImageData(img,x,y){
-  //第一个参数是图像元素  ，第2,3个是从图像的那里开始截图，第4,5个是截图图像元素的大小,
-  //第6,7个是放在canvas上的位置,8,9个是将截取下来的图像，以多少宽高显显示在画布上
-  //截取样张上的部分图片绘制到画布上去
-  ctx.drawImage(img,x,y,100,100,0,0,100,100);
-  
-  //第1,2个参数是从画布那里开始截取,第3,4参数是截取的大小
-  //选中画布上的矩形区域，求出改区域上的rgba
-  var imgData = ctx.getImageData(0,0,100,100).data; 
-  var arr = []
-  for(var i =0; i < imgData.length;i+=4){
-  		var obj = {};
-  		obj.R=imgData[i];
-  		obj.G=imgData[i+1];
-  		obj.B=imgData[i+2];
-  		obj.A=imgData[i+3];
-  		arr.push(obj);
-  }
-  	return arr
-  }
+
 //获取是否处于病发区域*********************************************************
 	function getAtRound(imgData){
   	var count = 0;
@@ -215,5 +226,17 @@ function getImageData(img,x,y){
 	
 	}
 	
-	
+  //获取截取的坐标位置 ***************************************************************
+  function getXY(img){
+  //获取待检测图像的宽高，
+  var imgW = img.offsetWidth;
+  var imgH = img.offsetHeight;
+  //截图图像点的坐标
+  var x = imgW/2-50;
+  var y = imgH/2-50;
+  var arr=[];
+  arr[0]=x;
+  arr[1]=y;
+  	return arr
+  }
 }
