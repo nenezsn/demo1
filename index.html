@@ -1,80 +1,130 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="utf-8" />
 		<title>计算机视觉识别番茄病毒病</title>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.css"/>
-		<link rel="stylesheet" type="text/css" href="css/main.css"/>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			h1 {
+				text-align: center;
+			}
+			
+			.wrap {
+				padding: 0 300px;
+				overflow: hidden;
+			}
+			
+			.pl {
+				text-align: center;
+			}
+			
+			.form-control {
+				width: 200px;
+				margin-top: 20px;
+				margin-bottom: 20px;
+			}
+			
+			.box {
+				position: relative;
+				display: inline-block;
+			}
+			
+			.move {
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				top: 0;
+				left: 0;
+				border: 2px solid red;
+				cursor: pointer;
+			}
+			
+			.xuanzhong {
+				margin-bottom: 10px;
+			}
+			
+			#tupian {
+				width: 300px;
+				height: 300px;
+			}
+		</style>
 	</head>
+
 	<body>
-<div class="wrap">
-		<h1>计算机视觉识别番茄病毒病</h1>
-		<p class="pl">请选择要检测的图片样本：</p>
-		<select id="sel" class="form-control center-block">
-			<option value="1.jpg">患病样本1</option>
-			<option value="9.jpg">患病样本2</option>			
-			<option value="5.jpg">患病样本3</option>
-			<option value="6.jpg">患病样本4</option>
-			<option value="7.jpg">患病样本5</option>
-			<option value="8.png">患病样本6</option>
-			<option value="3.jpg">患病样本7</option>
-			<option value="10.jpg">患病样本10</option>
-			<option value="11.jpg">患病样本11</option>
-			<option value="12.jpg">患病样本12</option>
-			<option value="13.jpg">患病样本13</option>
-			<option value="14.jpg">患病样本14</option>
-			<option value="15.jpg">患病样本15</option>
-			<option value="16.jpg">患病样本16</option>
-			<option value="17.jpg">患病样本17</option>
-			<option value="18.jpg">患病样本18</option>
-			<option value="19.jpg">患病样本19</option>
-			<option value="24.jpg">患病样本22</option>
-			<option value="26.jpg">患病样本23</option>
-			<option value="30.jpg">患病样本24</option>
-			<option value="32.jpg">患病样本26</option>
-			<option value="34.jpg">患病样本27</option>
-			<option value="35.jpg">患病样本28</option>
-			<option value="36.jpg">患病样本29</option>
-			<option value="37.jpg">患病样本30</option>
-			<option value="39.jpg">患病样本31</option>
-			<option value="40.jpg">患病样本32</option>
-			<option value="41.jpg">患病样本33</option>
-			<option value="jiankang1.jpg">健康样本1</option>
-			<option value="jiankang2.jpg">健康样本2</option>
-			<option value="jiankang3.jpg">健康样本3</option>
-			<option value="jiankang5.jpg">健康样本4</option>
-			<option value="jiankang6.jpg">健康样本5</option>
-			<option value="jiankang7.jpg">健康样本6</option>
-			<option value="jiankang8.jpg">健康样本7</option>
-			<option value="jiankang9.jpg">健康样本8</option>
-			<option value="jiankang10.jpg">健康样本9</option>		
-		</select>
-	<div class="left" style="width: 350px; float: left;">
-		<p>请点击左键，以确定你要检测的区域</p>	
-		<div class="box" id="box" style="overflow: hidden;width: 300px;" >
-			<div class="move" id="move"></div>
-			<img class="img-rounded" src="img/1.jpg" alt="tulip" id="tulip" style="margin-left:0px;" />
-		</div>	
-	</div>
-	<!--<div style="float: left;position: absolute;top:300px;left: 750px;"><img src="img/jiantou.jpg"/></div>-->
-	<div class="right" style="width: 350px; float: right;">
-		<p class="xuanzhong">待检测的区域:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图像预处理后效果:</p>	
-		<canvas id="myCanvas" width="450" height="200" style="border-radius: 6px;border:1px solid black;"></canvas>
-		<div class="info" style="border: 1px solid black;border-radius: 6px; text-align: center;width:456px">
-			<h5>采集到的信息:</h5>	
-		<div class="list-group">
-		  <a href="#" class="list-group-item">
-		    <h4 class="list-group-item-heading">RGB</h4>
-		    <p class="list-group-item-text" id="RGB"></p>
-		  </a>
+		<div class="wrap">
+			<h1>计算机视觉识别番茄病毒病</h1>
+			<p class="pl">请选择要检测的图片样本：</p>
+			<select id="sel" class="form-control center-block">
+				<option value="1.jpg">患病样本1</option>
+				<option value="9.jpg">患病样本2</option>
+				<option value="5.jpg">患病样本3</option>
+				<option value="6.jpg">患病样本4</option>
+				<option value="7.jpg">患病样本5</option>
+				<option value="8.png">患病样本6</option>
+				<option value="3.jpg">患病样本7</option>
+				<option value="10.jpg">患病样本10</option>
+				<option value="11.jpg">患病样本11</option>
+				<option value="12.jpg">患病样本12</option>
+				<option value="13.jpg">患病样本13</option>
+				<option value="14.jpg">患病样本14</option>
+				<option value="15.jpg">患病样本15</option>
+				<option value="16.jpg">患病样本16</option>
+				<option value="17.jpg">患病样本17</option>
+				<option value="18.jpg">患病样本18</option>
+				<option value="19.jpg">患病样本19</option>
+				<option value="24.jpg">患病样本22</option>
+				<option value="26.jpg">患病样本23</option>
+				<option value="30.jpg">患病样本24</option>
+				<option value="32.jpg">患病样本26</option>
+				<option value="34.jpg">患病样本27</option>
+				<option value="35.jpg">患病样本28</option>
+				<option value="36.jpg">患病样本29</option>
+				<option value="37.jpg">患病样本30</option>
+				<option value="39.jpg">患病样本31</option>
+				<option value="40.jpg">患病样本32</option>
+				<option value="41.jpg">患病样本33</option>
+				<option value="jiankang1.jpg">健康样本1</option>
+				<option value="jiankang2.jpg">健康样本2</option>
+				<option value="jiankang3.jpg">健康样本3</option>
+				<option value="jiankang5.jpg">健康样本4</option>
+				<option value="jiankang6.jpg">健康样本5</option>
+				<option value="jiankang7.jpg">健康样本6</option>
+				<option value="jiankang8.jpg">健康样本7</option>
+				<option value="jiankang9.jpg">健康样本8</option>
+				<option value="jiankang10.jpg">健康样本9</option>
+			</select>
+			<div class="left" style="width: 350px; float: left;">
+				<p>请点击左键，以确定你要检测的区域</p>
+				<div class="box" id="box" style="overflow: hidden;width: 300px;">
+					<div class="move" id="move"></div>
+					<img class="img-rounded" src="img/1.jpg" alt="tupian" id="tupian" style="margin-left:0px;" />
+				</div>
+			</div>
+			<!--<div style="float: left;position: absolute;top:300px;left: 750px;"><img src="img/jiantou.jpg"/></div>-->
+			<div class="right" style="width: 350px; float: right;">
+				<p class="xuanzhong">待检测的区域:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图像预处理后效果:</p>
+				<canvas id="myCanvas" width="450" height="200" style="border-radius: 6px;border:1px solid black;"></canvas>
+				<div class="info" style="border: 1px solid black;border-radius: 6px; text-align: center;width:456px">
+					<h5>采集到的信息:</h5>
+					<div class="list-group">
+						<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">RGB</h4>
+							<p class="list-group-item-text" id="RGB"></p>
+						</a>
+					</div>
+
+				</div>
+			</div>
 		</div>
-		
-		</div>
-	</div>
-</div>
-	<h4 style="text-align: center;">◆是否处于发病区域:<span id="zhanbi"></span></h4>
-<h3 style="text-align: center;">
-		结果:<span id="zhanbi2"></span>
+		<h4 style="text-align: center;">◆是否处于发病区域:<span id="jielun1"></span></h4>
+		<h3 style="text-align: center;">
+		结果:<span id="jielun2"></span>
 	<div style="display: none;" id="motai">
 		<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">点击查看：防治方案</button>
 		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -110,21 +160,189 @@
 		</div>
 	</div>
 </h3>
-	
 
-</body>
+	</body>
+
 </html>
-	<script src="js/jquery-1.11.1.js"></script>
-	<script src="js/bootstrap.js"></script>
-	<script src="js/drop.js"></script>
-	<script src="js/main.js"></script>
-	<script src="js/select.js"></script>
+<script src="js/jquery-1.11.1.js"></script>
+<script src="js/bootstrap.js"></script>
+<!--这里是选框模块-->
+<script type="text/javascript">
+	var box = document.getElementById("box");
+	var div1 = document.getElementById("move");
+	box.onmousemove = function(event) {
+		var event = event || window.event;
+		var sT = document.body.scrollTop
+		var l = event.clientX - box.offsetLeft - div1.offsetWidth / 2;
+		var t = event.clientY - box.offsetTop + sT - div1.offsetHeight / 2;
+		if(l <= 0 && l <= box.offsetWidth - div1.offsetWidth) {
+			l = 0;
+		} else if(l >= box.offsetWidth - div1.offsetWidth) {
+			l = box.offsetWidth - div1.offsetWidth;
+		}
 
+		if(t <= 0) {
+			t = 0;
+		} else if(t >= box.offsetHeight - div1.offsetHeight) {
+			t = box.offsetHeight - div1.offsetHeight;
+		}
 
+		div1.style.left = l + "px";
+		div1.style.top = t + "px"
+		div1.onclick = function() {
+			main(l, t);
 
-<!--
-	
-	
-	
-	  
--->
+		}
+	}
+</script>
+<!--这里是主模块-->
+<script type="text/javascript">
+	function main(x, y) {
+		//获取canvas对象
+		var c = document.getElementById("myCanvas");
+		//获取canvas的上下文
+		var ctx = c.getContext("2d");
+
+		//获取图片对象
+		var img = document.getElementById("tupian");
+		//获取图片的裁剪位置
+		//var XY=getXY(img)	
+		//获取裁剪后图片的像素信息
+		var imgData = getImageData(img, x, y)
+		//获取处理后的图片展示
+		var newData = clearOther();
+		ctx.putImageData(newData, 250, 0);
+		//获取RGB 
+		var RGB = getRGBAverage();
+		var RGBinfo = document.getElementById("RGB")
+		RGBinfo.innerHTML = "R:" + RGB.R + "  ,  " + "G:" + RGB.G + "  ,  " + "B:" + RGB.B
+
+		//是否处于发病区域;
+		var flag = getAtRound();
+		var flagInfo = document.getElementById("jielun1");
+
+		if(flag) {
+			flagInfo.innerHTML = "处于发病区域";
+			flagInfo.style.color = "red";
+		} else {
+			flagInfo.style.color = "green";
+			flagInfo.innerHTML = "未处于发病区域";
+		}
+
+		//最终结论：
+		var jielun2 = document.getElementById("jielun2");
+		var motai = document.getElementById("motai");
+		var motai1 = document.getElementById("motai1");
+		if(flag) {
+			jielun2.innerHTML = "存在病毒病，请及时处理";
+			jielun2.style.color = "red";
+			motai.style.display = 'none';
+			motai1.style.display = 'inline-block';
+		} else {
+			jielun2.innerHTML = "不存在病毒病，请做好防治";
+			jielun2.style.color = "green";
+			motai.style.display = 'inline-block';
+			motai1.style.display = 'none';
+		}
+
+		/**********************************下面是函数部分***********************************/
+		//获得图像中心区域的RGB集合 ************************************************************
+		function getImageData(img, x, y) {
+			//第一个参数是图像元素  ，第2,3个是从图像的那里开始截图，第4,5个是截图图像元素的大小,
+			//第6,7个是放在canvas上的位置,8,9个是将截取下来的图像，以多少宽高显显示在画布上
+			//截取样张上的部分图片绘制到画布上去
+			ctx.drawImage(img, x, y, 200, 200, 0, 0, 200, 200);
+
+			//第1,2个参数是从画布那里开始截取,第3,4参数是截取的大小
+			//选中画布上的矩形区域，求出改区域上的rgba
+
+			var data = ctx.getImageData(0, 0, 200, 200)
+			var imgData = data.data;
+
+			var arr = []
+			for(var i = 0; i < imgData.length; i += 4) {
+				var obj = {};
+				obj.R = imgData[i];
+				obj.G = imgData[i + 1];
+				obj.B = imgData[i + 2];
+				obj.A = imgData[i + 3];
+				arr.push(obj);
+			}
+			return arr
+		}
+		//消除其他非叶部元素的影响***************************************************************
+		function clearOther() {
+			var data = ctx.getImageData(0, 0, 200, 200);
+			var color = data.data;
+			for(var i = 0; i < color.length; i += 4) {
+				if(color[i + 1] < color[i] + 10 || color[i + 1] < 50) {
+					color[i] = 0;
+					color[i + 1] = 0;
+					color[i + 2] = 0;
+				}
+			}
+			return data;
+
+		}
+		//求出所选区域的RGB平均值**************************************************************
+		function getRGBAverage() {
+			var data = clearOther();
+			var color = data.data;
+			var count = 0;
+			var R = 0;
+			var G = 0;
+			var B = 0;
+			for(var i = 0; i < color.length; i += 4) {
+				if(color[i + 1] != 0) {
+					count++;
+					R += color[i]
+					G += color[i + 1]
+					B += color[i + 2]
+				}
+			}
+
+			R = format(R / count);
+			G = format(G / count);
+			B = format(B / count);
+
+			var obj = {};
+			obj.R = R;
+			obj.G = G;
+			obj.B = B;
+			return obj;
+		}
+		//用来保留小数点用的函数*******************************************************
+		function format(val) {
+			return Number(val).toFixed(2) * 1;
+		}
+
+		//获取是否处于病发区域*********************************************************
+		function getAtRound() {
+			var imgData = getRGBAverage()
+			var R = imgData.R;
+			var G = imgData.G;
+			var B = imgData.B;
+			console.log(R)
+			console.log(G)
+			console.log(B)
+			if(R > 110 && R < 162 && G > 144 && G < 190) {
+				console.log("true")
+				return true;
+			} else {
+				console.log("false")
+				return false;
+			}
+
+		}
+
+	}
+</script>
+<!--这里是图片切换模块-->
+<script type="text/javascript">
+	var selected = document.getElementById("sel");
+	var img = document.getElementById("tupian");
+	selected.onchange = function() {
+		var value = this.value;
+		img.src = "img/" + value
+	}
+</script>
