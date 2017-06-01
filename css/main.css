@@ -22,8 +22,8 @@
 				display: inline-block;
 			}
 			.move{
-				width: 100px;
-				height: 100px;
+				width: 200px;
+				height: 200px;
 				position: absolute;
 				top:0;
 				left: 0;
@@ -32,4 +32,8 @@
 			}
 			.xuanzhong{
 				margin-bottom: 10px;
+			}
+			#tulip{
+				width: 300px;
+				height: 300px;
 			}
