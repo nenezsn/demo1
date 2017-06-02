@@ -111,33 +111,42 @@
 				<p class="xuanzhong">待检测的区域:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;图像预处理后效果:</p>
 				<canvas id="myCanvas" width="450" height="200" style="border-radius: 6px;border:1px solid black;"></canvas>
 				<div class="info" style="border: 1px solid black;border-radius: 6px; text-align: center;width:456px">
-					<h5>采集到的信息:</h5>
+					<h5>获取到的信息:</h5>
 					<div class="list-group">
 						<a href="#" class="list-group-item">
-							<h4 class="list-group-item-heading">RGB</h4>
+							<h4 class="list-group-item-heading">有效部分占比：</h4>
+							<p class="list-group-item-text" id="use"></p>
+						</a>
+						<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">RGB均值：</h4>
 							<p class="list-group-item-text" id="RGB"></p>
+						</a>
+						<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">发病区间：</h4>
+							<p class="list-group-item-text">R ：110 - 162 G ：144 - 190</p>
+						</a>
+						<a href="#" class="list-group-item">
+							<h4 class="list-group-item-heading">是否处于发病区域:</h4>
+							<p class="list-group-item-text" id="jielun1"></p>
 						</a>
 					</div>
 
 				</div>
 			</div>
 		</div>
-		<h4 style="text-align: center;">◆是否处于发病区域:<span id="jielun1"></span></h4>
+
 		<h3 style="text-align: center;">
 		结果:<span id="jielun2"></span>
 	<div style="display: none;" id="motai">
 		<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">点击查看：防治方案</button>
 		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 		  <div class="modal-dialog modal-lg" role="document">
-		    <div class="modal-content" style="text-align: left;">
-		     <h4>防治番茄病毒病，采用以农业防治为主的综防措施。</h4>
-			<ul style="list-style: none; font-size: 14px;">
-			<li>(1)种子消毒。播种前用清水浸种3-4h，再放入10%磷酸三钠溶液中浸30-50min，捞出后用清水冲净再催芽播种，或用0.1%高锰酸钾溶液浸种30min。</li>
-			<li>(2)轮作倒茬净化土地。定植田要进行两年以上轮作，有条件的结合深翻，施用石灰，促使土壤中病毒钝化。</li>
-			<li>(3)采用配方施肥等多项健身栽培技术，增强寄主抗病力。其中包括适期播种、适时早定植、早中耕锄草、及时培土促进发根、晚打杈、及时浇水。
-			种植户应结合蕃茄长势、TY病毒危害程度、预期TY病毒发展速度及其他防控措施，优化选择以下方案：
-			发病初期：可用20%盐酸吗啉胍乙酸铜可湿性粉剂500倍液、浩瀚高科2%氨基寡糖素水剂300倍液、1．5%的植病灵乳剂1000倍液、3氮唑核苷(32%核苷溴吗啉胍)水剂500倍液、2%宁南霉素水剂 l50～250倍液、5%菌毒清水剂300-500倍液，等杀菌农药剂喷雾，每隔5～7天喷1次，连续喷2～3次。</li>
-			</ul>
+		    <div class="modal-content" style="text-align: left;font-size: 14px;">
+		     <h4>预防措施。</h4>
+			1.培育无病无虫苗是关键。该病对番茄植株侵害越早，发病率越高，所以预防要从育苗期抓起，做到早防早控，力争少发病或不发病。苗床周围杂草要除干净，苗床土壤要进行消毒处理，以减少病源。苗床用黄化曲叶病毒灵B灌根剂3000倍液喷后整地，并使用40～60目防虫网覆盖。在苗期2-3片叶开始5天一次连续喷施3次黄化曲叶病毒疫苗预防。并用黄化曲叶病毒灵B2000倍液在分苗时和定植前灌苗床2次 。
+2.农业措施。定植时用黄化曲叶病毒灵B2000-3000倍液浇穴水，缓苗后用黄化曲叶病毒灵A1袋1桶水3-4天一次喷施。连喷4次。适当控制氮肥用量和保持田间湿润。施肥灌水做到少量多次，做到不旱不涝，适时放风，避免棚内高温，调节好田间温湿度，增施有机肥，促进植株生长健壮，提高植株的抗病能力，1-2穗果时可再喷施1-2次番茄黄化曲叶病毒灵，及时清除田间杂草和残枝落叶，以减少虫源。大棚风口用40～60目防虫网隔离，配合田间吊黄板预防烟粉虱。
+3、治疗：如前期没有预防感染上了病毒，请立即用黄化曲叶病毒灵B2000-3000倍液灌根，3-4天喷1次黄化曲叶病毒灵A或黄化曲叶病毒疫苗，连喷4-5次。如不想灌根可用黄化曲叶病毒灵B冲施，亩用1000-1500毫升。在治疗期间停止用生长素及控旺药物及普通病毒药物。
+
 		    </div>
 		  </div>
 		</div>
@@ -153,8 +162,11 @@
 		    <div class="modal-content" style="text-align: left;">
 		   	<h4>发病原因</h4>
 		  <p style="font-size: 14px;">
-			烟草花叶病毒可在多种植物上越冬，也可附着在番茄种子上、土壤中的病残体上越冬，田间越冬寄主残体、烤晒后的烟叶、烟丝均可成为该病的初侵染源。主要通过汁液接触传染，只要寄主有伤口，即可侵入。黄瓜花叶病毒主要由蚜虫传染，此外用汁液摩擦接种也可传染。冬季病毒多在宿根杂草上越冬，春季蚜虫迁飞传毒，引致发病。番茄病毒病的发生与环境条件关系密切，一般高温干旱天气利于病害发生。此外，施用过量的氮肥，植株组织生长柔嫩或土壤瘠薄、板结、黏重以及排水不良发病重。番茄病毒的毒源种类在一年里往往有周期性的变化，春夏两季烟草花叶病毒比例较大，而秋季黄瓜花叶病毒为主。因此，生产上防治时应针对病毒的来源，采取相应的措施，才能收到较满意的效果。
-		 </p>
+		  	<text style="font-size: 16px;">病原:</text><br />该病毒为中国番茄黄化曲叶病毒(Tomato yellow leaf curl virus，TYLCV)，属于双生病毒科（Geminiviridae）
+ 菜豆金色花叶病毒属（Begomovirus）病毒，因该属病毒在自然条件下只能由烟粉虱（Bemisia tabaci）以持久方式传播，又被称为粉虱传双生病毒，是一类具有孪生颗粒形态的植物DNA 病毒，广泛分布于热带和亚热带地区，在烟草、番茄、南瓜、木薯、棉花等重要经济作物上造成毁灭性危害。<br />
+ 			<text style="font-size: 16px;">症状:</text><br />染病番茄植株矮化，生长缓慢或停滞，顶部叶片常稍褪绿发黄、生长发育早期染病植株严重矮缩，无法正常开花结果；生长发育后期染病植株仅上部叶和新芽表现症状，结果数减少，果实变小，成熟期果实着色不均匀(红不透)，基本失去商品价值。<br />
+			
+		  </p>
 		    </div>
 		  </div>
 		</div>
@@ -212,11 +224,14 @@
 		//获取处理后的图片展示
 		var newData = clearOther();
 		ctx.putImageData(newData, 250, 0);
+		//显示模块------------------------------------------------------------------------------
+
 		//获取RGB 
 		var RGB = getRGBAverage();
 		var RGBinfo = document.getElementById("RGB")
 		RGBinfo.innerHTML = "R:" + RGB.R + "  ,  " + "G:" + RGB.G + "  ,  " + "B:" + RGB.B
-
+		var use = document.getElementById("use")
+		use.innerHTML = RGB.use * 100 + "%"
 		//是否处于发病区域;
 		var flag = getAtRound();
 		var flagInfo = document.getElementById("jielun1");
@@ -256,8 +271,8 @@
 			//第1,2个参数是从画布那里开始截取,第3,4参数是截取的大小
 			//选中画布上的矩形区域，求出改区域上的rgba
 
-			var data = ctx.getImageData(0, 0, 200, 200)
-			var imgData = data.data;
+			var imgObj = ctx.getImageData(0, 0, 200, 200)
+			var imgData = imgObj.data;
 
 			var arr = []
 			for(var i = 0; i < imgData.length; i += 4) {
@@ -265,15 +280,14 @@
 				obj.R = imgData[i];
 				obj.G = imgData[i + 1];
 				obj.B = imgData[i + 2];
-				obj.A = imgData[i + 3];
 				arr.push(obj);
 			}
 			return arr
 		}
 		//消除其他非叶部元素的影响***************************************************************
 		function clearOther() {
-			var data = ctx.getImageData(0, 0, 200, 200);
-			var color = data.data;
+			var imgObj = ctx.getImageData(0, 0, 200, 200);
+			var color = imgObj.data;
 			for(var i = 0; i < color.length; i += 4) {
 				if(color[i + 1] < color[i] + 10 || color[i + 1] < 50) {
 					color[i] = 0;
@@ -281,13 +295,13 @@
 					color[i + 2] = 0;
 				}
 			}
-			return data;
+			return imgObj;
 
 		}
 		//求出所选区域的RGB平均值**************************************************************
 		function getRGBAverage() {
-			var data = clearOther();
-			var color = data.data;
+			var imgObj = clearOther();
+			var color = imgObj.data;
 			var count = 0;
 			var R = 0;
 			var G = 0;
@@ -309,6 +323,7 @@
 			obj.R = R;
 			obj.G = G;
 			obj.B = B;
+			obj.use = format(count / 40000)
 			return obj;
 		}
 		//用来保留小数点用的函数*******************************************************
@@ -322,14 +337,12 @@
 			var R = imgData.R;
 			var G = imgData.G;
 			var B = imgData.B;
-			console.log(R)
-			console.log(G)
-			console.log(B)
+
 			if(R > 110 && R < 162 && G > 144 && G < 190) {
-				console.log("true")
+
 				return true;
 			} else {
-				console.log("false")
+
 				return false;
 			}
 
