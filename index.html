@@ -6,6 +6,11 @@
 		<title>基于机器视觉的番茄病毒病识别</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 		<style type="text/css">
+			html,body{
+				width: 100%;
+				height: 100%;
+				background-image: url(img/beijing2.png);
+			}
 			* {
 				margin: 0;
 				padding: 0;
@@ -16,6 +21,7 @@
 			}
 			
 			.wrap {
+
 				padding: 0 300px;
 				overflow: hidden;
 			}
@@ -53,7 +59,6 @@
 				width: 300px;
 				height: 300px;
 			}
-		
 		</style>
 	</head>
 
@@ -90,13 +95,10 @@
 				<option value="39.jpg">患病样本31</option>
 				<option value="40.jpg">患病样本32</option>
 				<option value="41.jpg">患病样本33</option>
-				<option value="检测.jpg">待测样本34</option>
-				<option value="0.jpg">待测样本35</option>
-				<option value="0.jpg">待测样本36</option>
-				<option value="0.jpg">待测样本37</option>
-				<option value="0.jpg">待测样本38</option>
-				<option value="0.jpg">待测样本39</option>
-				<option value="0.jpg">待测样本40</option>
+				<option value="检测.jpg">检测</option>
+				<option value="检测1.jpg">检测1</option>
+				<option value="检测2.jpg">检测2</option>
+				<option value="检测3.jpg">检测3</option>
 				<option value="jiankang1.jpg">健康样本1</option>
 				<option value="jiankang2.jpg">健康样本2</option>
 				<option value="jiankang3.jpg">健康样本3</option>
@@ -111,7 +113,7 @@
 				<p>请点击左键，以确定你要检测的区域</p>
 				<div class="box" id="box" style="overflow: hidden;width: 300px;">
 					<div class="move" id="move"></div>
-					<img class="img-rounded" src="img/12.jpg" alt="tupian" id="tupian" style="margin-left:0px;width: 300;height: 300;	" />
+					<img class="img-rounded" src="img/7.jpg" alt="tupian" id="tupian" style="margin-left:0px;width: 300;height: 300;	" />
 				</div>
 			</div>
 			<!--<div style="float: left;position: absolute;top:300px;left: 750px;"><img src="img/jiantou.jpg"/></div>-->
@@ -123,7 +125,7 @@
 					<div class="list-group">
 						<a href="#" class="list-group-item">
 							<h4 class="list-group-item-heading">有效部分占比：</h4>
-							<p class="list-group-item-text" id="use"></p>
+							<p class="list-group-item-text" id="use">0%</p>
 						</a>
 						<a href="#" class="list-group-item">
 							<h4 class="list-group-item-heading">RGB均值：</h4>
@@ -135,7 +137,7 @@
 						</a>
 						<a href="#" class="list-group-item">
 							<h4 class="list-group-item-heading">是否处于发病区域:</h4>
-							<p class="list-group-item-text" id="jielun1"></p>
+							<p class="list-group-item-text" id="jielun1">待检测</p>
 						</a>
 					</div>
 
@@ -146,10 +148,10 @@
 		<h3 style="text-align: center;width: 400px;margin: 0 auto;height: 100px;background-color: rgb(242,222,222);padding-top: 30px;border-radius: 10px;margin-top: 40px;margin-bottom: 40px;">
 		结果:<span id="jielun2">暂无结果。</span>
 	<div style="display: none;" id="motai">
-		<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">点击查看：防治方案</button>
+		<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg" style="margin-top: 10px;">点击查看：防治方案</button>
 		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 		  <div class="modal-dialog modal-lg" role="document">
-		    <div class="modal-content" style="text-align: left;font-size: 14px;">
+		    <div class="modal-content" style="text-align: left;font-size: 14px;padding: 20px;">
 		     <h4 style="color: green;">预防措施:</h4>
 			1.培育无病无虫苗是关键。该病对番茄植株侵害越早，发病率越高，所以预防要从育苗期抓起，做到早防早控，力争少发病或不发病。苗床周围杂草要除干净，苗床土壤要进行消毒处理，以减少病源。苗床用黄化曲叶病毒灵B灌根剂3000倍液喷后整地，并使用40～60目防虫网覆盖。在苗期2-3片叶开始5天一次连续喷施3次黄化曲叶病毒疫苗预防。并用黄化曲叶病毒灵B2000倍液在分苗时和定植前灌苗床2次 。
 <br />2.农业措施。定植时用黄化曲叶病毒灵B2000-3000倍液浇穴水，缓苗后用黄化曲叶病毒灵A1袋1桶水3-4天一次喷施。连喷4次。适当控制氮肥用量和保持田间湿润。施肥灌水做到少量多次，做到不旱不涝，适时放风，避免棚内高温，调节好田间温湿度，增施有机肥，促进植株生长健壮，提高植株的抗病能力，1-2穗果时可再喷施1-2次番茄黄化曲叶病毒灵，及时清除田间杂草和残枝落叶，以减少虫源。大棚风口用40～60目防虫网隔离，配合田间吊黄板预防烟粉虱。
@@ -160,14 +162,14 @@
 		</div>
 	</div>
 	<div style="display: none;" id="motai1">
-		<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal">
+		<button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#myModal" style="margin-top: 10px;">
   点击查看：发病原因
 		</button>
 		
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
-		    <div class="modal-content" style="text-align: left;font-size: 14px;">
+		    <div class="modal-content" style="text-align: left;font-size: 14px;padding: 20px;">
 		   	<h4 style="color: red;">发病原因</h4>		
 		  	该病毒为中国番茄黄化曲叶病毒(Tomato yellow leaf curl virus，TYLCV)，属于双生病毒科（Geminiviridae）
  菜豆金色花叶病毒属（Begomovirus）病毒，因该属病毒在自然条件下只能由烟粉虱（Bemisia tabaci）以持久方式传播，又被称为粉虱传双生病毒，是一类具有孪生颗粒形态的植物DNA 病毒，广泛分布于热带和亚热带地区，在烟草、番茄、南瓜、木薯、棉花等重要经济作物上造成毁灭性危害。<br />
@@ -182,7 +184,7 @@
 		</div>
 	</div>
 </h3>
-		<a  class="btn btn-default  center-block "  href="tujian.html" style="width: 200px;height: 200px;font-size: 20px;background-color: rgb(42,165,123);border-radius:50%;padding: 20px;display: flex;justify-content:center;align-items: center;" target="_blank">番茄常见病症图鉴</a>
+		<a  class="btn btn-default  center-block tuanjian"  href="tujian.html" style="width: 200px;height: 200px;font-size: 20px;background-color: rgb(42,165,123);border-radius:50%;padding: 20px;color: white;display: flex;justify-content:center;align-items: center;" target="_blank">番茄常见病症图鉴</a>
 		
 	</body>
 
