@@ -3,7 +3,7 @@
 
 	<head>
 		<meta charset="utf-8" />
-		<title>计算机视觉识别番茄病毒病</title>
+		<title>基于机器视觉的番茄病毒病识别</title>
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
 		<style type="text/css">
 			* {
@@ -41,7 +41,7 @@
 				position: absolute;
 				top: 0;
 				left: 0;
-				border: 2px solid red;
+				border: 3px solid red;
 				cursor: pointer;
 			}
 			
@@ -58,15 +58,15 @@
 
 	<body>
 		<div class="wrap">
-			<h1>计算机视觉识别番茄病毒病</h1>
+			<h1>基于机器视觉的番茄病毒病识别</h1>
 			<p class="pl">请选择要检测的图片样本：</p>
 			<select id="sel" class="form-control center-block">
 				<option value="1.jpg">患病样本1</option>
 				<option value="9.jpg">患病样本2</option>
-				<option value="5.jpg">患病样本3</option>
+				<!--<option value="8.png">患病样本3</option>-->
 				<option value="6.jpg">患病样本4</option>
 				<option value="7.jpg">患病样本5</option>
-				<option value="8.png">患病样本6</option>
+				<option value="5.jpg">患病样本6</option>
 				<option value="3.jpg">患病样本7</option>
 				<option value="10.jpg">患病样本10</option>
 				<option value="11.jpg">患病样本11</option>
@@ -89,6 +89,13 @@
 				<option value="39.jpg">患病样本31</option>
 				<option value="40.jpg">患病样本32</option>
 				<option value="41.jpg">患病样本33</option>
+				<option value="检测.jpg">待测样本34</option>
+				<option value="0.jpg">待测样本35</option>
+				<option value="0.jpg">待测样本36</option>
+				<option value="0.jpg">待测样本37</option>
+				<option value="0.jpg">待测样本38</option>
+				<option value="0.jpg">待测样本39</option>
+				<option value="0.jpg">待测样本40</option>
 				<option value="jiankang1.jpg">健康样本1</option>
 				<option value="jiankang2.jpg">健康样本2</option>
 				<option value="jiankang3.jpg">健康样本3</option>
@@ -103,7 +110,7 @@
 				<p>请点击左键，以确定你要检测的区域</p>
 				<div class="box" id="box" style="overflow: hidden;width: 300px;">
 					<div class="move" id="move"></div>
-					<img class="img-rounded" src="img/1.jpg" alt="tupian" id="tupian" style="margin-left:0px;" />
+					<img class="img-rounded" src="img/1.jpg" alt="tupian" id="tupian" style="margin-left:0px;width: 300;height: 300;	" />
 				</div>
 			</div>
 			<!--<div style="float: left;position: absolute;top:300px;left: 750px;"><img src="img/jiantou.jpg"/></div>-->
@@ -123,7 +130,7 @@
 						</a>
 						<a href="#" class="list-group-item">
 							<h4 class="list-group-item-heading">发病区间：</h4>
-							<p class="list-group-item-text">R ：110 - 162 G ：144 - 190</p>
+							<p class="list-group-item-text"><span style='color:red'>R:</span>110-162 <span style='color:green'>G:</span>144-190</p>
 						</a>
 						<a href="#" class="list-group-item">
 							<h4 class="list-group-item-heading">是否处于发病区域:</h4>
@@ -135,18 +142,18 @@
 			</div>
 		</div>
 
-		<h3 style="text-align: center;">
+<h3 style="text-align: center;width: 400px;margin: 0 auto;height: 100px;background-color: rgb(242,222,222);padding-top: 30px;border-radius: 10px;margin-top: 40px;margin-bottom: 40px;">
 		结果:<span id="jielun2"></span>
 	<div style="display: none;" id="motai">
 		<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">点击查看：防治方案</button>
 		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
 		  <div class="modal-dialog modal-lg" role="document">
 		    <div class="modal-content" style="text-align: left;font-size: 14px;">
-		     <h4>预防措施。</h4>
+		     <h4 style="color: green;">预防措施:</h4>
 			1.培育无病无虫苗是关键。该病对番茄植株侵害越早，发病率越高，所以预防要从育苗期抓起，做到早防早控，力争少发病或不发病。苗床周围杂草要除干净，苗床土壤要进行消毒处理，以减少病源。苗床用黄化曲叶病毒灵B灌根剂3000倍液喷后整地，并使用40～60目防虫网覆盖。在苗期2-3片叶开始5天一次连续喷施3次黄化曲叶病毒疫苗预防。并用黄化曲叶病毒灵B2000倍液在分苗时和定植前灌苗床2次 。
-2.农业措施。定植时用黄化曲叶病毒灵B2000-3000倍液浇穴水，缓苗后用黄化曲叶病毒灵A1袋1桶水3-4天一次喷施。连喷4次。适当控制氮肥用量和保持田间湿润。施肥灌水做到少量多次，做到不旱不涝，适时放风，避免棚内高温，调节好田间温湿度，增施有机肥，促进植株生长健壮，提高植株的抗病能力，1-2穗果时可再喷施1-2次番茄黄化曲叶病毒灵，及时清除田间杂草和残枝落叶，以减少虫源。大棚风口用40～60目防虫网隔离，配合田间吊黄板预防烟粉虱。
-3、治疗：如前期没有预防感染上了病毒，请立即用黄化曲叶病毒灵B2000-3000倍液灌根，3-4天喷1次黄化曲叶病毒灵A或黄化曲叶病毒疫苗，连喷4-5次。如不想灌根可用黄化曲叶病毒灵B冲施，亩用1000-1500毫升。在治疗期间停止用生长素及控旺药物及普通病毒药物。
-
+<br />2.农业措施。定植时用黄化曲叶病毒灵B2000-3000倍液浇穴水，缓苗后用黄化曲叶病毒灵A1袋1桶水3-4天一次喷施。连喷4次。适当控制氮肥用量和保持田间湿润。施肥灌水做到少量多次，做到不旱不涝，适时放风，避免棚内高温，调节好田间温湿度，增施有机肥，促进植株生长健壮，提高植株的抗病能力，1-2穗果时可再喷施1-2次番茄黄化曲叶病毒灵，及时清除田间杂草和残枝落叶，以减少虫源。大棚风口用40～60目防虫网隔离，配合田间吊黄板预防烟粉虱。
+<br />3.治疗：如前期没有预防感染上了病毒，请立即用黄化曲叶病毒灵B2000-3000倍液灌根，3-4天喷1次黄化曲叶病毒灵A或黄化曲叶病毒疫苗，连喷4-5次。如不想灌根可用黄化曲叶病毒灵B冲施，亩用1000-1500毫升。在治疗期间停止用生长素及控旺药物及普通病毒药物。
+			
 		    </div>
 		  </div>
 		</div>
@@ -159,19 +166,22 @@
 		<!-- Modal -->
 		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		  <div class="modal-dialog" role="document">
-		    <div class="modal-content" style="text-align: left;">
-		   	<h4>发病原因</h4>
-		  <p style="font-size: 14px;">
-		  	<text style="font-size: 16px;">病原:</text><br />该病毒为中国番茄黄化曲叶病毒(Tomato yellow leaf curl virus，TYLCV)，属于双生病毒科（Geminiviridae）
+		    <div class="modal-content" style="text-align: left;font-size: 14px;">
+		   	<h4 style="color: red;">发病原因</h4>		
+		  	该病毒为中国番茄黄化曲叶病毒(Tomato yellow leaf curl virus，TYLCV)，属于双生病毒科（Geminiviridae）
  菜豆金色花叶病毒属（Begomovirus）病毒，因该属病毒在自然条件下只能由烟粉虱（Bemisia tabaci）以持久方式传播，又被称为粉虱传双生病毒，是一类具有孪生颗粒形态的植物DNA 病毒，广泛分布于热带和亚热带地区，在烟草、番茄、南瓜、木薯、棉花等重要经济作物上造成毁灭性危害。<br />
- 			<text style="font-size: 16px;">症状:</text><br />染病番茄植株矮化，生长缓慢或停滞，顶部叶片常稍褪绿发黄、生长发育早期染病植株严重矮缩，无法正常开花结果；生长发育后期染病植株仅上部叶和新芽表现症状，结果数减少，果实变小，成熟期果实着色不均匀(红不透)，基本失去商品价值。<br />
-			
-		  </p>
+ 			<h4 style="color: red;">症状</h4>染病番茄植株矮化，生长缓慢或停滞，顶部叶片常稍褪绿发黄、生长发育早期染病植株严重矮缩，无法正常开花结果；生长发育后期染病植株仅上部叶和新芽表现症状，结果数减少，果实变小，成熟期果实着色不均匀(红不透)，基本失去商品价值。<br />
+			<h4 style="color: red;">治疗病毒病应该注意的问题：</h4>
+1、 灌根效果比冲施效果好，灌根剂1瓶500毫升灌2000-2500株最好，用注射器抽灌根剂6-7毫升兑30斤水灌30株，冲施亩用2-3瓶。
+<br />2、 喷施黄化曲叶病毒灵或疫苗最好不要在高温时进行，早晚施药效果最佳，配药时最好2次稀释，上下要喷均匀，一般开花前亩用30-45斤水，开花后1亩45-60斤水，1-2穗果时60-75斤水，2-3穗果时90-120斤水，3穗果以上时120-150斤水。1袋药配30斤水。和农用有机硅助剂配合使用效果好。
+<br />3、 边治边方生的原因：（一）可能和其它含激素的叶面肥或普通抗病毒病的药剂混用或交替使用了，喷花时激素浓度过大。（二）可能是药量小，喷施不均匀。（三）没有按时用药。
+		
 		    </div>
 		  </div>
 		</div>
 	</div>
 </h3>
+		<a class="btn btn-default  center-block" href="tujian.html" style="text-align: center;" target="_blank">番茄其他病症图鉴</a>
 
 	</body>
 
@@ -198,7 +208,9 @@
 		} else if(t >= box.offsetHeight - div1.offsetHeight) {
 			t = box.offsetHeight - div1.offsetHeight;
 		}
-
+		div1.innerHTML = "(" + l + "," + t + ")";
+		div1.style.fontSize = 20 + 'px';
+		div1.style.padding = 20 + "px";
 		div1.style.left = l + "px";
 		div1.style.top = t + "px"
 		div1.onclick = function() {
@@ -229,7 +241,7 @@
 		//获取RGB 
 		var RGB = getRGBAverage();
 		var RGBinfo = document.getElementById("RGB")
-		RGBinfo.innerHTML = "R:" + RGB.R + "  ,  " + "G:" + RGB.G + "  ,  " + "B:" + RGB.B
+		RGBinfo.innerHTML = "<span style='color:red'>R:</span>" + RGB.R + "  ,  " + "<span style='color:green'>G:</span>" + RGB.G + "  ,  " + "<span style='color:blue'>B:</span>" + RGB.B
 		var use = document.getElementById("use")
 		use.innerHTML = RGB.use * 100 + "%"
 		//是否处于发病区域;
