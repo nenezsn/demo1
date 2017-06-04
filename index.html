@@ -53,6 +53,7 @@
 				width: 300px;
 				height: 300px;
 			}
+		
 		</style>
 	</head>
 
@@ -61,13 +62,13 @@
 			<h1>基于机器视觉的番茄病毒病识别</h1>
 			<p class="pl">请选择要检测的图片样本：</p>
 			<select id="sel" class="form-control center-block">
-				<option value="1.jpg">患病样本1</option>
+				<option value="19.jpg">患病样本1</option>
 				<option value="9.jpg">患病样本2</option>
 				<!--<option value="8.png">患病样本3</option>-->
-				<option value="6.jpg">患病样本4</option>
-				<option value="7.jpg">患病样本5</option>
-				<option value="5.jpg">患病样本6</option>
-				<option value="3.jpg">患病样本7</option>
+				<option value="30.jpg">患病样本3</option>
+				<option value="7.jpg">患病样本4</option>
+				<option value="5.jpg">患病样本5</option>
+				<!--<option value="3.jpg">患病样本7</option>-->
 				<option value="10.jpg">患病样本10</option>
 				<option value="11.jpg">患病样本11</option>
 				<option value="12.jpg">患病样本12</option>
@@ -76,11 +77,11 @@
 				<option value="15.jpg">患病样本15</option>
 				<option value="16.jpg">患病样本16</option>
 				<option value="17.jpg">患病样本17</option>
-				<option value="18.jpg">患病样本18</option>
+				<option value="1.jpg">患病样本18</option>				
 				<option value="19.jpg">患病样本19</option>
 				<option value="24.jpg">患病样本22</option>
 				<option value="26.jpg">患病样本23</option>
-				<option value="30.jpg">患病样本24</option>
+				<option value="6.jpg">患病样本24</option>
 				<option value="32.jpg">患病样本26</option>
 				<option value="34.jpg">患病样本27</option>
 				<option value="35.jpg">患病样本28</option>
@@ -110,7 +111,7 @@
 				<p>请点击左键，以确定你要检测的区域</p>
 				<div class="box" id="box" style="overflow: hidden;width: 300px;">
 					<div class="move" id="move"></div>
-					<img class="img-rounded" src="img/1.jpg" alt="tupian" id="tupian" style="margin-left:0px;width: 300;height: 300;	" />
+					<img class="img-rounded" src="img/12.jpg" alt="tupian" id="tupian" style="margin-left:0px;width: 300;height: 300;	" />
 				</div>
 			</div>
 			<!--<div style="float: left;position: absolute;top:300px;left: 750px;"><img src="img/jiantou.jpg"/></div>-->
@@ -142,8 +143,8 @@
 			</div>
 		</div>
 
-<h3 style="text-align: center;width: 400px;margin: 0 auto;height: 100px;background-color: rgb(242,222,222);padding-top: 30px;border-radius: 10px;margin-top: 40px;margin-bottom: 40px;">
-		结果:<span id="jielun2"></span>
+		<h3 style="text-align: center;width: 400px;margin: 0 auto;height: 100px;background-color: rgb(242,222,222);padding-top: 30px;border-radius: 10px;margin-top: 40px;margin-bottom: 40px;">
+		结果:<span id="jielun2">暂无结果。</span>
 	<div style="display: none;" id="motai">
 		<button type="button" class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">点击查看：防治方案</button>
 		<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -181,8 +182,8 @@
 		</div>
 	</div>
 </h3>
-		<a class="btn btn-default  center-block" href="tujian.html" style="text-align: center;" target="_blank">番茄其他病症图鉴</a>
-
+		<a  class="btn btn-default  center-block "  href="tujian.html" style="width: 200px;height: 200px;font-size: 20px;background-color: rgb(42,165,123);border-radius:50%;padding: 20px;display: flex;justify-content:center;align-items: center;" target="_blank">番茄常见病症图鉴</a>
+		
 	</body>
 
 </html>
